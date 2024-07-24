@@ -1,0 +1,16 @@
+{
+    "name": "devenv",
+    "dockerComposeFile": "compose.yml",
+    "service": "dev-env",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "ubuntu",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "oderwat.indent-rainbow",
+          "charliermarsh.ruff",
+          "tamasfe.even-better-toml"
+        ]
+      }
+    }
+  }
