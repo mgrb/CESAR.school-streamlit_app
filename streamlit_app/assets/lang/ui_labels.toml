@@ -1,0 +1,13 @@
+[home]
+titulo = "Painel de preços de combustíveis"
+subtitulo = "Introdução ao dataset"
+introducao_painel = "Mussum Ipsum, cacilds vidis litro abertis.  Nulla id gravida magna, ut semper sapien. Pellentesque nec nulla ligula. Donec gravida turpis a vulputate ultricies. Delegadis gente finis, bibendum egestas augue arcu ut est. Interagi no mé, cursus quis, vehicula ac nisi."
+
+introducao_dataset = "Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum. Suco de cevadiss deixa as pessoas mais interessantis. Mé faiz elementum girarzis, nisi eros vermeio. Eu nunca mais boto a boca num copo de cachaça, agora eu só uso canudis!"
+
+
+[por_mes]
+titulo = "Visualização por mês"
+
+[por_timeseries]
+titulo = "Visualização da série temporal"

@@ -1,61 +1,25 @@
-"""Dashboard de Atividades da Bolsa de Valores B3."""
+"""Application entry point."""
 
-import pandas as pd
-import plotly.graph_objs as go
 import streamlit as st
-import yfinance as yf
+import streamlit_app.page.home as home_page
+import streamlit_app.page.por_mes as mes_page
+import streamlit_app.page.por_timeseries as timeseries_page
+from streamlit_app.utils.load import load_image
 
-# Título do dashboard
-st.title('Dashboard de Atividades da Bolsa de Valores B3')
+# Page config
+st.set_page_config(page_title='Combustíveis')
 
-# Seleção de ativos
-st.sidebar.header('Selecione o ativo')
-ticker = st.sidebar.text_input('Ticker do ativo', 'PETR4.SA')
-
-# Período de análise
-st.sidebar.header('Selecione o período')
-start_date = st.sidebar.date_input('Data inicial', pd.to_datetime('2024-07-01'))
-end_date = st.sidebar.date_input('Data final', pd.to_datetime('today'))
+st.sidebar.image(load_image('logo-combustiveis.png'), use_column_width=True)
 
 
-# Função para carregar dados
-@st.cache_data
-def load_data(ticker: str, start_date: str, end_date: str) -> pd.DataFrame:
-    """Carregar dados do ativo.
+PAGES = {
+    '🏠 Home': home_page,
+    '📄 Análise mensal': mes_page,
+    '📊 Histórico geral': timeseries_page,
+}
 
-    Args:
-    ----
-        ticker (str): Ticker do ativo.
-        start_date (str): Data inicial.
-        end_date (str): Data final.
+st.sidebar.title('Navigation')
+selection = st.sidebar.radio('Go to', list(PAGES.keys()))
 
-    """
-    data = yf.download(ticker, start=start_date, end=end_date)
-    data.reset_index(inplace=True)  # noqa: PD002
-    return data
-
-
-# Carregar dados
-data = load_data(ticker, start_date, end_date)
-
-# Mostrar dados
-st.subheader('Dados brutos')
-st.write(data.tail())
-
-# Gráfico de preços de fechamento
-fig = go.Figure()
-fig.add_trace(
-    go.Scatter(
-        x=data['Date'],
-        y=data['Close'],
-        mode='lines',
-        name=ticker,
-    ),
-)
-fig.update_layout(
-    title=f'Preço de Fechamento do Ativo {ticker}',
-    xaxis_title='Data',
-    yaxis_title='Preço de Fechamento (R$)',
-)
-
-st.plotly_chart(fig)
+page = PAGES[selection]
+page.show_page()

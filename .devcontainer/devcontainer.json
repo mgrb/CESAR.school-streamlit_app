@@ -12,5 +12,6 @@
           "tamasfe.even-better-toml"
         ]
       }
-    }
+    },
+    "postStartCommand": "poetry run poetry install"
   }
