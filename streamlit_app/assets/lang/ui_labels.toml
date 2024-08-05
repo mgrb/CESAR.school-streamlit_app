@@ -8,6 +8,16 @@ introducao_dataset = "Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non te
 
 [por_mes]
 titulo = "Visualização por mês"
+lbl_select_mes = "Selecione o ano mês de referência"
+lbl_select_estado = "Selecione o estado"
+lbl_preco_medio = "Preços médios do estado [#]"
+lbl_gasolina_comum = "Gasolina comum"
+lbl_gasolina_aditivada = "Gasolina aditivada"
+lbl_etanol = "Etanol"
+lbl_diesel = "Diesel"
+lbl_diesel_s10 = "Diesel S10"
+subtitulo_top5 = "Comparação dos TOP 5 meses com maiores médias de preços"
+
 
 [por_timeseries]
 titulo = "Visualização da série temporal"

@@ -3,6 +3,8 @@
 from pathlib import Path
 from typing import Any
 
+import pandas as pd
+import streamlit as st
 import toml
 from PIL import Image
 
@@ -58,3 +60,59 @@ def load_toml(toml_file: str) -> dict[Any, Any]:
     )
 
     return dict(toml_loaded)
+
+
+@st.cache_data
+def load_dataset(dataset_name: str) -> pd.DataFrame:
+    """Loads a dataset from a csv file.
+
+    Parameters
+    ----------
+    dataset_name : str
+        Name of the dataset to be loaded.
+
+    Returns
+    -------
+    pd.DataFrame
+        Loaded dataset.
+
+    """
+    return pd.read_csv(
+        Path(get_project_root()) / f'streamlit_app/data/{dataset_name}.csv',
+    )
+
+
+@st.cache_data
+def load_ufs() -> list[str]:
+    """Loads Brazilian states from a csv file.
+
+    Returns
+    -------
+    list
+        List of Brazilian states.
+
+    """
+    df_ufs = load_dataset('combustiveis-estados')
+
+    estados = df_ufs['estado'].dropna().unique()
+    estados.sort()
+
+    return estados.tolist()
+
+
+@st.cache_data
+def load_meses_refeferencia() -> list[str]:
+    """Loads Brazilian states from a csv file.
+
+    Returns
+    -------
+    list
+        List of Brazilian states.
+
+    """
+    df_ufs = load_dataset('combustiveis-estados')
+
+    meses = df_ufs['referencia'].dropna().unique()
+    meses.sort()
+
+    return meses.tolist()
