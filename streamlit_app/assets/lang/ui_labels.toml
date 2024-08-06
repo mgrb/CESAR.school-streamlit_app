@@ -1,9 +1,9 @@
 [home]
 titulo = "Painel de preços de combustíveis"
 subtitulo = "Introdução ao dataset"
-introducao_painel = "Mussum Ipsum, cacilds vidis litro abertis.  Nulla id gravida magna, ut semper sapien. Pellentesque nec nulla ligula. Donec gravida turpis a vulputate ultricies. Delegadis gente finis, bibendum egestas augue arcu ut est. Interagi no mé, cursus quis, vehicula ac nisi."
+introducao_painel = "O dataset de combustíveis é composto por dados que vão de julho de 2001 até janeiro de 2023. Estes dados incluem preços mínimos, máximos e médios, registrados mensalmente por estado da federação. Os tipos de combustíveis contemplados são: gasolina comum e aditivada, etanol, diesel, diesel S10 (ou DS10), gás de cozinha e gás natural."
 
-introducao_dataset = "Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum. Suco de cevadiss deixa as pessoas mais interessantis. Mé faiz elementum girarzis, nisi eros vermeio. Eu nunca mais boto a boca num copo de cachaça, agora eu só uso canudis!"
+introducao_dataset = "Trazemos aqui neste dashboard uma análise exploratória dos dados de preços de combustíveis. Através de visualizações interativas, é possível explorar os preços médios dos combustíveis por estado, por mês e ao longo do tempo. Além disso, é possível comparar os preços médios dos combustíveis entre os estados e visualizar a evolução dos preços ao longo dos anos."
 
 
 [por_mes]
