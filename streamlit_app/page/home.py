@@ -1,12 +1,13 @@
 """Dashboard de Atividades da Bolsa de Valores B3."""
 
 import streamlit as st
-from streamlit_app.utils.load import load_toml, load_image
+from utils.load import load_toml
 
 labels = load_toml('ui_labels')
 
 
-def show_page():
+def show_page() -> None:
+    """Mostra a página inicial do dashboard."""
     # Título do dashboard
     st.title(labels['home']['titulo'])
     st.write(labels['home']['introducao_painel'])

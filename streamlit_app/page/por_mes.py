@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 from pandas.core.frame import DataFrame
-from streamlit_app.utils.load import (
+from utils.load import (
     load_dataset,
     load_meses_refeferencia,
     load_toml,
@@ -22,7 +22,10 @@ df_combustiveis = load_dataset('combustiveis-estados')
 
 
 def montar_grafico(mes: str, data: DataFrame) -> None:
-    """Monta o gráfico de análise de dados por estado e mês, mostrando os 5 estados com as maiores médias dos combustíveis."""
+    """Monta o gráfico de análise de dados por estado e mês.
+
+    Mmostrando os 5 estados com as maiores médias dos combustíveis.
+    """
     df_filtrado = data[(data['referencia'] == mes)]
 
     # Lista com os nomes das colunas dos preços médios
@@ -77,7 +80,6 @@ def montar_grafico(mes: str, data: DataFrame) -> None:
         x='Combustível',
         y='Preço Médio (R$)',
         color='Estado',
-        # title='',
         labels={'Preço Médio (R$)': 'Preço Médio (R$)'},
         facet_col='Estado',
     )
@@ -128,12 +130,14 @@ def montar_colunas_precos_medios(
         st.write('Etanol Hidratado(R$)')
         st.title(f"{precos_medios['etanol_hidratado_preco_revenda_avg']:.2f}")
     with cols_avg_estado[3]:
+        st.write('')
         st.write('Óleo Diesel(R$)')
         st.title(f"{precos_medios['oleo_diesel_preco_revenda_avg']:.2f}")
     with cols_avg_estado[4]:
         st.write('Óleo Diesel S10(R$)')
         st.title(f"{precos_medios['oleo_diesel_s10_preco_revenda_avg']:.2f}")
     with cols_avg_estado[5]:
+        st.write('')
         st.write('GNV(R$)')
         st.title(
             f"{precos_medios['gas_natural_veicular_gnv_preco_revenda_avg']:.2f}",
